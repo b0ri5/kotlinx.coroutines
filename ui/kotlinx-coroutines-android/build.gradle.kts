@@ -109,4 +109,7 @@ tasks.withType<Test> {
     extensions.configure<KoverTaskExtension> {
         excludes = excludes + listOf("com.android.*", "android.*") // Exclude robolectric-generated classes
     }
+    // WA for https://github.com/robolectric/robolectric/issues/5456
+    systemProperty("robolectric.dependency.repo.url", "https://repo1.maven.org/maven2")
+    systemProperty("robolectric.dependency.repo.id", "central")
 }
